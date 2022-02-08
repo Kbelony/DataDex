@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root',
@@ -6,13 +9,22 @@ import { Injectable } from '@angular/core';
 export class ApiPokemonService {
   public pokemons: any[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) { }
 
-  fetchKantoPokemon() {
-    return fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-      .then((response) => response.json())
-      .then((result) => {
-        return result.results;
-      });
+  // updatePokemons() {
+  //   this.pokemons = this.fetchKantoPokemon();
+  // }
+
+  fetchKantoPokemon():Observable<any> {
+    return this.http
+    .get('https://pokeapi.co/api/v2/pokemon?limit=151');
+    // .pipe(
+    //   map(responseData => {
+    //     return Object.values(responseData).map(apiPokemon => {
+    //       console.log('apiPokemon.results :', apiPokemon.results);
+    //       return apiPokemon.results;
+    //     });
+    //   })
+    // );
   }
 }
