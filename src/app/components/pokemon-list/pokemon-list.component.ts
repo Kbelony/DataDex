@@ -10,11 +10,11 @@ export class PokemonListComponent implements OnInit {
 
   pokemons = [];
   constructor(
-    private apiPokemonSercive: ApiPokemonService
+    private apiPokemonService: ApiPokemonService
   ) { }
 
   ngOnInit(): void {
-    this.apiPokemonSercive.fetchKantoPokemon();
+    this.apiPokemonService.fetchKantoPokemon();
   }
 
 
