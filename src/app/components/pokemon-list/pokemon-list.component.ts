@@ -8,13 +8,14 @@ import { ApiPokemonService } from 'src/app/services/api-pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons = [];
+  pokemons: any[] = [];
   constructor(
     private apiPokemonService: ApiPokemonService
   ) { }
 
   ngOnInit(): void {
     this.apiPokemonService.fetchKantoPokemon();
+    this.pokemons = this.apiPokemonService.pokemons;
   }
 
 

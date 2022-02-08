@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiPokemonService {
+  public pokemons: any[] = [];
 
-  public pokemons = [];
+  constructor() {}
 
-  constructor() { }
-
-  fetchKantoPokemon(){
+  fetchKantoPokemon() {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    .then(response => response.json())
-    .then(allpokemon => {
-      this.pokemons = allpokemon.results;
-      console.log('this.pokemons :', this.pokemons);
-    })
-
-
+      .then((response) => response.json())
+      .then((allpokemon) => {
+        this.pokemons = allpokemon.results;
+      });
   }
 }
-
-
