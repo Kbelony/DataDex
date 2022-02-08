@@ -9,10 +9,10 @@ export class ApiPokemonService {
   constructor() {}
 
   fetchKantoPokemon() {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    return fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
       .then((response) => response.json())
-      .then((allpokemon) => {
-        this.pokemons = allpokemon.results;
+      .then((result) => {
+        return result.results;
       });
   }
 }
