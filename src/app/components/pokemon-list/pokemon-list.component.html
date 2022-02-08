@@ -1,5 +1,5 @@
 <ul class="list-group">
   <li class="list-group-item">
-    <app-pokemon-item></app-pokemon-item>
+    <app-pokemon-item *ngFor="let pokemon of pokemons" [name]="pokemon.name"></app-pokemon-item>
   </li>
 </ul>

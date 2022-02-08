@@ -17,8 +17,9 @@ export class PokemonListComponent implements OnInit {
   fetchPokemons() {
     this.apiPokemonService
       .fetchKantoPokemon()
-      .subscribe((apiPokemons: any[]) => {
-        this.pokemons = apiPokemons;
+      .subscribe((apiPokemons: any) => {
+        this.pokemons = apiPokemons.results;
+        console.log('this.pokemons :', this.pokemons);
       });
   }
 }
