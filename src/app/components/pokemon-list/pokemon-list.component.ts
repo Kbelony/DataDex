@@ -11,20 +11,25 @@ export class PokemonListComponent implements OnInit {
   constructor(private apiPokemonService: ApiPokemonService) {}
 
   ngOnInit(): void {
-    this.fetchPokemons();
+    this.getPokemons();
   }
 
-  fetchPokemons() {
+  getPokemons() {
     this.apiPokemonService
       .fetchKantoPokemon()
       .subscribe(
         (apiPokemons: any) => {
           this.pokemons = [...apiPokemons.results];
-          this.pokemons.map(pokemon => {
-            console.log('pokemon.name :', pokemon.name);
+          this.pokemons.forEach(pokemon => {
+            this.apiPokemonService.getPokemonData(pokemon).subscribe((details) => {
+              pokemon = { ...pokemon, details };
+              console.log(pokemon.details.id);
           });
+          console.log(this.pokemons)
+        })
           // console.log('this.pokemons :', this.pokemons);
         }
+
       );
   }
 }
