@@ -1,5 +1,6 @@
 <ul>
   <li>
+    <app-list-loader [isLoading]="isLoading"></app-list-loader>
     <app-pokemon-item *ngFor="let pokemon of pokemons"
     [pokemon]="pokemon"></app-pokemon-item>
   </li>

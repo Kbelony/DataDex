@@ -3,14 +3,16 @@
     <div class="myrow">
       <div class="col card-body">
         <h5 class="card-title">#{{pokemon?.details?.id}} {{pokemon.name | titlecase }}</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
         <span
         *ngFor="let type of pokemon?.details?.types"
-        class="badge rounded-pill ">{{type.type.name}}</span>
-    
+        class="badge rounded-pill bg-light text-dark ">{{type.type.name}}
+      </span>
+
       </div>
-      <img class="col" src="{{pokemon?.details?.sprites.other['official-artwork'].front_default}}" class="img-fluid rounded-start" alt="...">
+      <app-list-loader [isLoading]="!pokemon?.details"></app-list-loader>
+      <img
+      *ngIf="pokemon?.details"
+      class="col" src="{{pokemon?.details?.sprites.other['official-artwork'].front_default}}" class="img-fluid rounded-start" alt="...">
     </div>
   </div>
 </div>
