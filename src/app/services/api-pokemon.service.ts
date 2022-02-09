@@ -18,7 +18,7 @@ export class ApiPokemonService {
   // }
 
   fetchKantoPokemon():Observable<any> {
-    let url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
+    let url = 'https://pokeapi.co/api/v2/pokemon?limit=10';
     return this.httpClient
     .get(url);
   }
