@@ -20,16 +20,15 @@ export class PokemonListComponent implements OnInit {
       .subscribe(
         (apiPokemons: any) => {
           this.pokemons = [...apiPokemons.results];
-          this.pokemons.forEach(pokemon => {
-            this.apiPokemonService.getPokemonData(pokemon).subscribe((details) => {
-              pokemon = { ...pokemon, details };
-              console.log(pokemon.details.id);
-          });
-          console.log(this.pokemons)
-        })
-          // console.log('this.pokemons :', this.pokemons);
+          
+          for (let i = 0; i < this.pokemons.length; i++) {
+          this.apiPokemonService.getPokemonData(this.pokemons[i])
+            .subscribe((details: any) => {
+              this.pokemons[i] = { ...apiPokemons.results[i], details };
+              console.log(this.pokemons[i]);
+            });
+          }
         }
-
       );
   }
 }
