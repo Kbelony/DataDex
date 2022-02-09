@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PokemonItemComponent implements OnInit {
 
   @Input()
+  public id!:number;
+  @Input()
   public name!:string;
 
   constructor() { }

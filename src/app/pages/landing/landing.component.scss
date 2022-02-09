@@ -1,13 +1,17 @@
 :host{
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   background-color: red;
   padding: 30px;
   color: #fff;
 
   .container {
-    margin-top: 50%;
+    max-width: 600px;
+    position: absolute;
+    top: 20%;
+    padding: 3em;
 
     button{
       border-radius: 15px;

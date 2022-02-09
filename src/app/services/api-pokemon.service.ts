@@ -16,15 +16,8 @@ export class ApiPokemonService {
   // }
 
   fetchKantoPokemon():Observable<any> {
+    let url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
     return this.http
-    .get('https://pokeapi.co/api/v2/pokemon?limit=151');
-    // .pipe(
-    //   map(responseData => {
-    //     return Object.values(responseData).map(apiPokemon => {
-    //       console.log('apiPokemon.results :', apiPokemon.results);
-    //       return apiPokemon.results;
-    //     });
-    //   })
-    // );
+    .get(url);
   }
 }
