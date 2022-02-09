@@ -1,5 +1,16 @@
 :host {
   .card {
     margin: 2em;
+
+    .myrow {
+      display: flex;
+
+      img {
+        // max-width: 200px;
+        // min-width: 100px;
+        width: 20%;
+        padding: 20px;
+      }
+    }
   }
 }
